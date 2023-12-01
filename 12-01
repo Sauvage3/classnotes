@@ -1,0 +1,30 @@
+notes for 12/1
+
+0660 - first 0 octal, user, group, other
+-K IS OTHER, give perms for labs
+0606 - happy 
+-oujr group is students
+6- read and write
+4- read
+2 - write
+1- execute
+
+semctl(descriptor got using semget, which semget in set(remember come in boxes pf >= 1), operation desired, data(union semun)
+
+must have union semun {
+  int val;                  //used for SETVAL
+  struct semid_ds *buf;     //used for IPC_STAT and IPC_SET
+  unsigned short  *array;   //used for SETALL
+  struct seminfo  *__buf;
+}; in main.c
+
+union can hold largest possible piece of data it iwll eat, e.g. above can fit one of above, but not multiple
+can do struct notation e.g. varaible.val = 
+
+
+nowait, if blocking throw error dont wait
+must chekc for errors 
+
+
+semundo if you down resource and take it and crash, and you dont put it back noone can use it
+this lets op system undo semop
